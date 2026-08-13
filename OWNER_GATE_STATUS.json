@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "recorded_date": "2026-08-13",
+  "candidate": "luma-ai-frontend",
+  "operator_identity": {
+    "status": "COMPLETED_OWNER_CONFIRMED",
+    "brand": "LUMA Quant",
+    "legal_operator": "Luma Quant e.U.",
+    "founder": "Johann Weitzer",
+    "jurisdiction": "Austria",
+    "independent_registry_verification": "NOT_PERFORMED"
+  },
+  "license": "PROPRIETARY_SOURCE_AVAILABLE_ALL_RIGHTS_RESERVED",
+  "asset_rights": {
+    "status": "COMPLETED_OWNER_CONFIRMED_FAIL_CLOSED",
+    "policy": "INCLUDE_ONLY_OWNED_OR_LICENSED_FOR_PUBLIC_REPOSITORY_EXCLUDE_ALL_UNRESOLVED",
+    "independent_verification": "NOT_PERFORMED"
+  },
+  "security_contact": {
+    "address": "security@lumaquant.tech",
+    "status": "COMPLETED_OWNER_CONFIRMED",
+    "active": "YES_OWNER_ATTESTED",
+    "monitored": "YES_OWNER_ATTESTED",
+    "test_reception": "PASS_OWNER_ATTESTED",
+    "independent_verification": "NOT_PERFORMED",
+    "response_time_sla": "NOT_CLAIMED"
+  },
+  "open_review_matters": [
+    "LEGAL_REVIEW_NOT_YET_COMPLETED",
+    "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED"
+  ],
+  "product_truth": {
+    "production_alignment": "SANITIZED_MIRROR",
+    "legal_policy_text_review": "NOT_YET_COMPLETED",
+    "private_staging_history_must_remain_private": true,
+    "fresh_public_history_required": true
+  },
+  "publication_performed": false
+}

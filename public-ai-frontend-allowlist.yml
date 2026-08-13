@@ -1,0 +1,23 @@
+version: 1
+source: private:luma-quant-lab
+source_commit: b39c2d752abfc9a1c4d151db8519e7b070c7c869
+include:
+  - .env.example
+  - index.html
+  - package.json
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+  - tsconfig.json
+  - vite.config.ts
+  - public/**
+  - src/App.tsx
+  - src/index.css
+  - src/main.tsx
+  - src/vite-env.d.ts
+  - src/api/**
+  - src/auth/**
+  - src/components/**
+  - src/legal/**
+  - src/support/**
+reviewed_overrides:
+  - export-overrides/**

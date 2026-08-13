@@ -1,0 +1,31 @@
+version: 1
+deny:
+  - .env
+  - .env.* except .env.example
+  - app/**
+  - server*.ts
+  - cloudbuild.yaml
+  - firebase.json
+  - .firebaserc
+  - private specifications, master prompts and repair scripts
+  - src/tokenPortal/**
+  - src/components/artifacts/**
+  - src/api/artifact*
+  - src/api/lumaKey*
+  - src/api/solana*
+  - src/api/tokenPortal*
+  - src/auth/artifactLoginReturn*
+  - src/auth/workspaceHandoff*
+  - src/auth/workspaceRegistration*
+  - browser simulation, scoring and price-estimation prototypes
+  - unreachable legacy/demo UI and embedded identities
+  - admin, debug and private feature-flag surfaces
+  - secrets, private endpoints, service accounts and production data
+  - unverified legal-operator identity and registration claims
+  - dist/**
+  - node_modules/**
+  - tmp/**
+  - __pycache__/**
+  - '**/*.pyc'
+  - '**/*.pyo'
+  - '**/*.map'

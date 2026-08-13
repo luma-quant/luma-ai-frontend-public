@@ -1,0 +1,39 @@
+{
+  "repository": "wotanIII/luma-ai-frontend-public",
+  "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+  "repository_creation_status": "PENDING",
+  "public_release": "0.1.0-rc1",
+  "live_domain": "https://ai.lumaquant.tech",
+  "release_class": "SANITIZED_PRODUCTION_SOURCE",
+  "source_private_commit_sha": "b39c2d752abfc9a1c4d151db8519e7b070c7c869",
+  "public_candidate_sha256": "d7d3aa860f9a2f6b9a8ab9183e000d624ae8a632899416b9e3d2bcb7462e0a98",
+  "candidate_hash_scope": "canonical full candidate excluding .git, generated build/dependency/SBOM/provenance records, PUBLIC_SOURCE_MANIFEST.json, RELEASE.json, product/dist and product/node_modules; archive checksum is detached",
+  "exported_at_utc": "2026-08-13T00:00:00Z",
+  "production_alignment": "SANITIZED_MIRROR",
+  "independent_audit": "NOT_YET_COMPLETED",
+  "legal_review": "NOT_YET_COMPLETED",
+  "operator_identity_status": "COMPLETED_OWNER_CONFIRMED",
+  "operator_identity": {
+    "brand": "LUMA Quant",
+    "legal_operator": "Luma Quant e.U.",
+    "founder": "Johann Weitzer",
+    "jurisdiction": "Austria",
+    "independent_registry_verification": "NOT_PERFORMED"
+  },
+  "license_status": "PROPRIETARY_SOURCE_AVAILABLE_ALL_RIGHTS_RESERVED",
+  "asset_rights_status": "COMPLETED_OWNER_CONFIRMED_FAIL_CLOSED",
+  "security_contact": "security@lumaquant.tech",
+  "security_contact_status": "COMPLETED_OWNER_CONFIRMED",
+  "security_contact_independent_verification": "NOT_PERFORMED",
+  "codeql_status": "PREPARED_NOT_EXECUTED_PUBLIC_REPOSITORY_PENDING",
+  "publication_review_status": "PUBLICATION_REVIEW_READY",
+  "publication_status": "PUBLIC_REPOSITORY_PENDING",
+  "publication_performed": false,
+  "publication_blockers": [
+    "LEGAL_REVIEW_NOT_YET_COMPLETED",
+    "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED"
+  ],
+  "owner_decision_manifest_sha256": "3679dce61727ff0e6a75783cf8b3817bb9c762aa8fe2c95086d0c667476aa196",
+  "product_source_sha256": "44998d174feb753111dbffb3a0331901d86a51a86e15a2d7de1f04db1f8e4916",
+  "asset_rights_inventory_sha256": "52f2b41af44587606eea6546e572c0dbc9baac1ecbac9a98bec75aaffc668ac5"
+}

@@ -1,0 +1,473 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+}
+
+.forecast-ticket-panel-content {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Segoe UI Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Luma Quant Normalized Colors */
+  --color-canvas: #0B0F19;
+  --color-canvas-elevated: #121620;
+  
+  --color-surface-primary: rgba(255, 255, 255, 0.05);
+  --color-surface-secondary: rgba(255, 255, 255, 0.1);
+  --color-surface-hover: rgba(255, 255, 255, 0.15);
+  
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-active: rgba(0, 240, 255, 0.3);
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #D4D4D8;
+  --color-text-muted: #A1A1AA;
+  
+  --color-accent-cyan: #00F0FF;
+  --color-accent-violet: #8B5CF6;
+  --color-accent-magenta: #FF15F3;
+  
+  --color-status-success: #10B981;
+  --color-status-warning: #F59E0B;
+  --color-status-error: #EF4444;
+
+  /* Legacy Colors (preserving for backward compatibility) */
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-magenta: #ff007f;
+  --color-cyber-purple: #7928ca;
+  --color-cyber-navy: #050515;
+  --color-text-aaa: #D4D4D8;
+  --color-text-aaa-muted: #A1A1AA;
+
+  /* Consistent Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Consistent Shadows & Glows */
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  --shadow-elevated: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+  --shadow-glow-cyan: 0 0 15px rgba(0, 240, 255, 0.15);
+  --shadow-glow-magenta: 0 0 15px rgba(255, 21, 243, 0.15);
+
+  /* Container Widths */
+  --container-width-main: 1200px;
+  
+  
+  /* Z-Index Layers */
+  --z-base: 0;
+  --z-elevated: 10;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  /* Motion Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  /* Easing */
+  --ease-luma: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-luma-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-luma-out: cubic-bezier(0, 0, 0.2, 1);
+
+  --animate-shimmer: shimmer 2s linear infinite;
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* Cosmic space visuals & animations */
+@keyframes orbital-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbital-spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes slow-pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 105% { filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.7)); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-orbital {
+  animation: orbital-spin 25s linear infinite;
+}
+
+.animate-orbital-fast {
+  animation: orbital-spin 8s linear infinite;
+}
+
+.animate-orbital-reverse {
+  animation: orbital-spin-reverse 18s linear infinite;
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Glassmorphism translucent cyber panels with 30px blur and interactive border highlights */
+.cyber-glass {
+  background: rgba(255, 255, 255, 0.025) !important;
+  backdrop-filter: blur(30px) saturate(220%) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(rgba(10, 10, 25, 0.30), rgba(10, 10, 25, 0.30)), 
+                    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 230, 255, 0.45) 0%, rgba(0, 230, 255, 0.08) 60%) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 50px -15px rgba(0, 0, 0, 0.8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05),
+    0 0 30px rgba(0, 230, 255, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cyber-glass-glow {
+  background: rgba(255, 255, 255, 0.025) !important;
+  backdrop-filter: blur(30px) saturate(220%) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(rgba(10, 10, 25, 0.30), rgba(10, 10, 25, 0.30)), 
+                    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 230, 255, 0.60) 0%, rgba(0, 230, 255, 0.12) 65%) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 60px -20px rgba(0, 0, 0, 0.95),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(0, 230, 255, 0.12);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cyber-glass-magenta {
+  background: rgba(255, 255, 255, 0.025) !important;
+  backdrop-filter: blur(30px) saturate(220%) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(rgba(10, 10, 25, 0.30), rgba(10, 10, 25, 0.30)), 
+                    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 0, 243, 0.50) 0%, rgba(255, 0, 243, 0.10) 60%) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 60px -20px rgba(0, 0, 0, 0.95),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(255, 0, 243, 0.1);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Premium Luma Quant Gradient Buttons (Cyan to Magenta with gloss layer) */
+.btn-cyber-gradient {
+  position: relative;
+  background: url('/button_hirarchie_1.webp') center/100% 100% no-repeat;
+  background-color: transparent;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: visible;
+  border: none;
+}
+
+.btn-cyber-gradient:hover {
+  filter: brightness(1.1);
+  box-shadow: 
+    0 8px 30px rgba(255, 0, 127, 0.4),
+    0 0 15px rgba(0, 240, 255, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  transform: translateY(-1.5px);
+}
+
+.btn-cyber-gradient:active {
+  transform: translateY(0.5px);
+  filter: brightness(0.95);
+}
+
+/* Glassmorphism Cyber Buttons */
+.btn-cyber-glass {
+  background: url('/button_hirarchie_2.webp') center/100% 100% no-repeat;
+  background-color: transparent;
+  color: #00f0ff;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  border: none;
+  overflow: visible;
+}
+
+.btn-cyber-glass:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-1.5px);
+  filter: brightness(1.2);
+}
+
+.btn-cyber-glass:active {
+  transform: translateY(0.5px);
+}
+
+.btn-cyber-magenta-glass {
+  background: url('/button_hirarchie_2.webp') center/100% 100% no-repeat;
+  background-color: transparent;
+  color: #ff007f;
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.3);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  border: none;
+  overflow: visible;
+}
+
+.btn-cyber-magenta-glass:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-1.5px);
+  filter: brightness(1.2);
+}
+
+.btn-cyber-magenta-glass:active {
+  transform: translateY(0.5px);
+}
+
+/* Slanted cyber container */
+.cyber-slanted-button {
+  position: relative;
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.cyber-slanted-button-small {
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+/* Cosmic background canvas grid */
+.cyber-grid-overlay {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Hide scrollbars for true native mobile simulator look */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Compact LUMA scrollbars for data-rich desktop panels. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 211, 238, 0.45) rgba(8, 14, 27, 0.72);
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(8, 14, 27, 0.72);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.58),
+    rgba(168, 85, 247, 0.52)
+  );
+  border: 1px solid rgba(8, 14, 27, 0.72);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.82),
+    rgba(217, 70, 239, 0.72)
+  );
+}
+
+@keyframes cometDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-400px) scale(0.5) rotateX(60deg);
+    filter: drop-shadow(0 0 60px rgba(0, 240, 255, 1)) brightness(2);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px) scale(1.1) rotateX(-10deg);
+    filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.8)) brightness(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4)) brightness(1);
+  }
+}
+
+@keyframes lightningStrikeLeft {
+  0% { transform: scaleX(0) translateX(-100%) rotate(25deg); opacity: 0; }
+  30% { transform: scaleX(1) translateX(0) rotate(25deg); opacity: 1; }
+  100% { transform: scaleX(0) translateX(100%) rotate(25deg); opacity: 0; }
+}
+
+@keyframes lightningStrikeRight {
+  0% { transform: scaleX(0) translateX(100%) rotate(-25deg); opacity: 0; }
+  30% { transform: scaleX(1) translateX(0) rotate(-25deg); opacity: 1; }
+  100% { transform: scaleX(0) translateX(-100%) rotate(-25deg); opacity: 0; }
+}
+
+@keyframes flashBoom {
+  0% { filter: brightness(1) drop-shadow(0 0 0 transparent); opacity: 0; transform: scale(0.5); }
+  30% { opacity: 0; transform: scale(0.5); }
+  32% { filter: brightness(3) drop-shadow(0 0 100px #fff); opacity: 1; transform: scale(1.2); }
+  60% { filter: brightness(1.5) drop-shadow(0 0 30px #00f0ff); opacity: 1; transform: scale(1.0); }
+  100% { filter: brightness(1) drop-shadow(0 0 20px #00f0ff); opacity: 1; transform: scale(1.0); }
+}
+
+.animate-comet-drop {
+  animation: cometDrop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.pack-card-bg {
+  background: url('/pack_reveal_old.webp') center/100% 100% no-repeat;
+  background-color: transparent;
+}
+
+
+@layer components {
+  /* BACKGROUND LAYERING */
+  .bg-atmospheric {
+    background-color: var(--color-canvas);
+  }
+  .bg-content-scrim {
+    background-color: rgba(11, 15, 25, 0.85); /* dims the star background */
+    backdrop-filter: blur(12px);
+  }
+  .bg-work-surface {
+    background-color: var(--color-canvas-elevated);
+    border: 1px solid var(--color-border-subtle);
+  }
+}
+
+/*
+ * Pro keeps the Advisor's analytical language cyan/blue. Magenta is reserved
+ * for the two explicit Pro signals: the mode toggle and status badge.
+ */
+.theme-pro {
+  --color-accent-cyan: #27D8FF;
+  --color-accent-magenta: #27D8FF;
+  --color-cyber-magenta: #0A8CFF;
+  --color-border-active: rgba(39, 216, 255, 0.42);
+  --color-canvas: #071321;
+  --color-canvas-elevated: #0A192A;
+  --color-surface-primary: rgba(18, 70, 105, 0.18);
+  --color-surface-secondary: rgba(24, 101, 145, 0.14);
+  --color-surface-hover: rgba(39, 216, 255, 0.14);
+  --color-border-subtle: rgba(71, 179, 221, 0.14);
+  --shadow-glow-magenta: 0 0 15px rgba(39, 216, 255, 0.16);
+}
+
+/* Radix popovers render under body, outside the themed application root. */
+.theme-pro-portals {
+  --color-accent-cyan: #27D8FF;
+  --color-accent-magenta: #27D8FF;
+  --color-cyber-magenta: #0A8CFF;
+  --color-border-active: rgba(39, 216, 255, 0.42);
+  --color-canvas: #071321;
+  --color-canvas-elevated: #0A192A;
+  --color-surface-primary: rgba(18, 70, 105, 0.18);
+  --color-surface-secondary: rgba(24, 101, 145, 0.14);
+  --color-surface-hover: rgba(39, 216, 255, 0.14);
+  --color-border-subtle: rgba(71, 179, 221, 0.14);
+  --shadow-glow-magenta: 0 0 15px rgba(39, 216, 255, 0.16);
+}
+
+.theme-pro [data-advisor-workspace] {
+  background-image:
+    radial-gradient(circle at 78% 14%, rgba(39, 216, 255, 0.09), transparent 38%),
+    radial-gradient(circle at 28% 88%, rgba(10, 140, 255, 0.07), transparent 44%),
+    linear-gradient(125deg, rgba(3, 14, 28, 0.12), rgba(5, 35, 61, 0.2));
+}
+
+.theme-pro [data-advisor-workspace] .bg-content-scrim {
+  background-color: rgba(4, 18, 33, 0.82);
+}
+
+.theme-pro .btn-cyber-gradient {
+  background-image: linear-gradient(105deg, #042D52 0%, #075E86 52%, #086A8E 100%);
+  background-color: #064A75;
+  border: 1px solid rgba(39, 216, 255, 0.5);
+  box-shadow:
+    0 8px 28px rgba(4, 57, 110, 0.34),
+    0 0 16px rgba(39, 216, 255, 0.2);
+}
+
+.theme-pro .btn-cyber-gradient:hover {
+  box-shadow:
+    0 10px 30px rgba(4, 57, 110, 0.46),
+    0 0 20px rgba(39, 216, 255, 0.32),
+    inset 0 1px 2px rgba(255, 255, 255, 0.28);
+}

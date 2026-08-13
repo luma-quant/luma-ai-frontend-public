@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "recorded_date": "2026-08-13",
+  "candidate": "luma-ai-frontend",
+  "policy": "INCLUDE_ONLY_OWNED_OR_LICENSED_FOR_PUBLIC_REPOSITORY_EXCLUDE_ALL_UNRESOLVED",
+  "attestation_class": "OWNER_CONFIRMED",
+  "independent_rights_verification": "NOT_PERFORMED",
+  "asset_count": 7,
+  "unresolved_asset_count": 0,
+  "assets": [
+    {
+      "path": "product/public/background_mobile.webp",
+      "bytes": 18836,
+      "sha256": "69ac7f633fe1d0000295fe0c29ee3b401f9e88db59a21ff8a8700ef30bf2f612",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/button_hirarchie_1.webp",
+      "bytes": 18602,
+      "sha256": "06fd8edb82af35c027dd138e9e9156184a703efb4ae838b392f42b19b72c8048",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/button_hirarchie_2.webp",
+      "bytes": 11858,
+      "sha256": "e9cd86291b33956882b901e4f46f355626100a2fb100c5660caabd729643c66e",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/credits.webp",
+      "bytes": 6106,
+      "sha256": "006039c33bc4bb152e3b655a708d1847495f2f653ac7a07283eef2efb0a7ff0d",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/logo-1.webp",
+      "bytes": 12564,
+      "sha256": "f704323c96b027ee8fa43b62c40c31b4f02c8717d488afb46a95e2875c3e6446",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/pack_open.webp",
+      "bytes": 72252,
+      "sha256": "c727f75898e1fc77c1d8049d0de769fa9aba003a20a37b375eef0e55b76c7ae0",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    },
+    {
+      "path": "product/public/pack_reveal_old.webp",
+      "bytes": 17542,
+      "sha256": "118f25361e2d18e83d674d4087b16f90f138a5de6e588d5c1a8586feae50fbd5",
+      "status": "OWNED",
+      "attestation": "OWNER_CONFIRMED"
+    }
+  ]
+}
+
