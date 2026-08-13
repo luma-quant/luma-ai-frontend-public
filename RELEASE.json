@@ -1,6 +1,6 @@
 {
-  "repository": "wotanIII/luma-ai-frontend-public",
-  "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+  "repository": "luma-quant/luma-ai-frontend-public",
+  "repository_url": "https://github.com/luma-quant/luma-ai-frontend-public",
   "repository_creation_status": "COMPLETED_VERIFIED",
   "repository_url_verification": "COMPLETED_VERIFIED",
   "repository_visibility": "PUBLIC",
@@ -15,7 +15,7 @@
   "public_root_tree_sha": "85887a094c1bdea6b0f704ba27b8c6e6adf3d5f1",
   "verified_pre_status_head_commit_sha": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5",
   "verified_pre_status_head_tree_sha": "992834f253af26760481446e8cbc986397baddbc",
-  "public_candidate_sha256": "d228ada611af60dec447e89d54f11d9f754490e6251c833a51dc5e2b1cd880ea",
+  "public_candidate_sha256": "5db3af221000924d457fd59f31c566105ae556cc8c520cf9e62c8c6ca86f09c8",
   "candidate_hash_scope": "canonical full candidate excluding .git, generated build/dependency/SBOM/provenance records, PUBLIC_SOURCE_MANIFEST.json, RELEASE.json, product/dist and product/node_modules; archive checksum is detached",
   "exported_at_utc": "2026-08-13T00:00:00Z",
   "publication_status_observed_at_utc": "2026-08-13T12:32:19Z",
@@ -48,12 +48,12 @@
     "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED"
   ],
   "publication_evidence": {
-    "public_review_run_url": "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890",
-    "codeql_run_url": "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753",
+    "public_review_run_url": "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890",
+    "codeql_run_url": "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753",
     "verified_head_commit_sha": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5",
     "self_reference_policy": "CURRENT_STATUS_COMMIT_IS_BOUND_BY_GIT_TREE_AND_DETACHED_ARCHIVE_NOT_EMBEDDED_IN_ITS_OWN_CONTENT"
   },
   "owner_decision_manifest_sha256": "3679dce61727ff0e6a75783cf8b3817bb9c762aa8fe2c95086d0c667476aa196",
-  "product_source_sha256": "a84c3f10079594ba49646e4f7953f12aae87813247d63897cecb5faf98565567",
+  "product_source_sha256": "81373dfc8c57a6b1634d640a314cd0eb902ff861f536fb3370c627557de7434d",
   "asset_rights_inventory_sha256": "52f2b41af44587606eea6546e572c0dbc9baac1ecbac9a98bec75aaffc668ac5"
 }

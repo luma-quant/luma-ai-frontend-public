@@ -199,9 +199,9 @@ def check_metadata(files: list[Path], findings: list[tuple[str, str]]) -> None:
         findings.append(("publication-status", "RELEASE.json"))
     if release.get("publication_performed") is not True:
         findings.append(("publication-performed", "RELEASE.json"))
-    if release.get("repository") != "wotanIII/luma-ai-frontend-public":
+    if release.get("repository") != "luma-quant/luma-ai-frontend-public":
         findings.append(("repository-target", "RELEASE.json"))
-    if release.get("repository_url") != "https://github.com/wotanIII/luma-ai-frontend-public":
+    if release.get("repository_url") != "https://github.com/luma-quant/luma-ai-frontend-public":
         findings.append(("repository-url", "RELEASE.json"))
     if release.get("repository_creation_status") != "COMPLETED_VERIFIED":
         findings.append(("repository-creation-status", "RELEASE.json"))
@@ -222,9 +222,9 @@ def check_metadata(files: list[Path], findings: list[tuple[str, str]]) -> None:
     if release.get("codeql_status") != "SUCCESS_ZERO_OPEN_ALERTS" or release.get("codeql_open_alerts") != 0:
         findings.append(("codeql-status", "RELEASE.json"))
     evidence = release.get("publication_evidence", {})
-    if evidence.get("public_review_run_url") != "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890":
+    if evidence.get("public_review_run_url") != "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890":
         findings.append(("public-review-run", "RELEASE.json"))
-    if evidence.get("codeql_run_url") != "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753":
+    if evidence.get("codeql_run_url") != "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753":
         findings.append(("codeql-run", "RELEASE.json"))
     if release.get("deployment_status") != "NOT_CLAIMED" or release.get("payment_and_delivery_status") != "NOT_CLAIMED":
         findings.append(("unsupported-product-operation-claim", "RELEASE.json"))
@@ -266,8 +266,8 @@ def check_manifest(files: list[Path], findings: list[tuple[str, str]]) -> None:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     expected_metadata = {
         "source_private_commit": SOURCE_COMMIT,
-        "repository": "wotanIII/luma-ai-frontend-public",
-        "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+        "repository": "luma-quant/luma-ai-frontend-public",
+        "repository_url": "https://github.com/luma-quant/luma-ai-frontend-public",
         "repository_creation_status": "COMPLETED_VERIFIED",
         "repository_url_verification": "COMPLETED_VERIFIED",
         "repository_visibility": "PUBLIC",

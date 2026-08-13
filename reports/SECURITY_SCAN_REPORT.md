@@ -44,8 +44,8 @@ The initial public CodeQL run identified four test-only
 regular-expression handling with deterministic literal checks. Its public
 review workflow and CodeQL rerun both completed successfully:
 
-- Review: https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890
-- CodeQL: https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753
+- Review: https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890
+- CodeQL: https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753
 
 The repository had zero open CodeQL alerts at `2026-08-13T12:32:19Z`. This is
 a timestamped observation, not a permanent security guarantee. Dependency

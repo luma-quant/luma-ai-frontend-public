@@ -78,19 +78,19 @@
       "sha256": "4218822933c9bef6cd24d1a4d4457a52f495324a491dd03e1ceee74f65facb05"
     },
     {
-      "bytes": 4801,
+      "bytes": 4811,
       "path": "README.md",
-      "sha256": "f129abbb3a0c27b5af606f63d011dbc4e5f92bb4be2ec0b0c2b889c98a83cdaa"
+      "sha256": "7ae2bf33d7ecdf5877c4e719ec16dcb3191517cb3b485a61e0810fc063f4b519"
     },
     {
-      "bytes": 3268,
+      "bytes": 3276,
       "path": "RELEASE.json",
-      "sha256": "e2f9321842dde7dc869976ed46c3b9ebc9e62f2517e00937217fd41fbe6ee7a3"
+      "sha256": "35fc4feeb4da47a252b5bf8b35c1ebb3c78a9a647b939abccf42c05b8917ac27"
     },
     {
-      "bytes": 697392,
+      "bytes": 697394,
       "path": "SBOM.cdx.json",
-      "sha256": "7fe5fa849d72dbab2b78fef5a581f9677f84328f501e6b36f18c19541957c790"
+      "sha256": "1f2a070135e1a7907f44af6eb4086ad81d501e96d967e7fb8f2a025ae4190ec4"
     },
     {
       "bytes": 792,
@@ -190,12 +190,12 @@
     {
       "bytes": 121153,
       "path": "product/pnpm-lock.yaml",
-      "sha256": "18ff8487ad95041821cec007648bd09ff4405fd91daa90ac2c8c4dde1cd8f14e"
+      "sha256": "9853d450da42d08abc911a48663e4784363606ce427cbf4104d70592fa8450df"
     },
     {
       "bytes": 92,
       "path": "product/pnpm-workspace.yaml",
-      "sha256": "dc9f0e715eda40194b9aaf7d68df214cdad11c629d5dc569476d851482d2ba4b"
+      "sha256": "629c83802b05821ae1385deb3eb1c6fba4c6ecb6279066ab175e73f06bd49a8e"
     },
     {
       "bytes": 18836,
@@ -850,7 +850,7 @@
     {
       "bytes": 716,
       "path": "reports/DEPENDENCY_AUDIT_REPORT.md",
-      "sha256": "7ec99ff76e551f440afefe1b8d0ed8418614e99ffaa2e44770342936add8b3e4"
+      "sha256": "b0c53dcc22cd2de61f5f23dffb16c3b45c7cb1b2855226eaa85aaa6f7e81d912"
     },
     {
       "bytes": 819,
@@ -868,9 +868,9 @@
       "sha256": "c24b982a6ca70b8f5984c79519e81331e159ae6a5f827cb37cbbe372fce2285a"
     },
     {
-      "bytes": 3437,
+      "bytes": 3441,
       "path": "reports/SECURITY_SCAN_REPORT.md",
-      "sha256": "1bc8e7b84800d0ff4cb495b86bd045d94e4c612fb5b0a6d70c150b26698360ea"
+      "sha256": "98545135145a3ac88bbe6a6073242a29bf82d243b0186dbaa75fad822869d150"
     },
     {
       "bytes": 1916,
@@ -888,14 +888,14 @@
       "sha256": "1553e68cafff7edeef2d1071fa84723fb57e3940a4b649c911cdb92cddfde612"
     },
     {
-      "bytes": 9642,
+      "bytes": 9654,
       "path": "scripts/finalize_public_candidate.py",
-      "sha256": "65eb12534614d84416feeceaf5e0d09f634830329347b8e5fab0fea31307b532"
+      "sha256": "d0b07e3eb09e2e6d89f6e1ad1c287a544d9eeea82d8961440d2abbb93a079d18"
     },
     {
-      "bytes": 1608,
+      "bytes": 1610,
       "path": "scripts/normalize_sbom.py",
-      "sha256": "d56a20384f75610d5f90662b5cde6660448494eaabc827a8de669390b2df2197"
+      "sha256": "3da38d7a0eb4b0ee69a2f41ae4c6727d51c5faf3b437869c40463ed4dc1963bb"
     },
     {
       "bytes": 1245,
@@ -903,14 +903,14 @@
       "sha256": "1bf2211d106e98fdb0f5faa096c9f02de1c3a4d45b63f99f53c3430db34f8f30"
     },
     {
-      "bytes": 15613,
+      "bytes": 15625,
       "path": "scripts/verify_public_candidate.py",
-      "sha256": "65cda3947687ba9954915df7df753b88386b2c2a0127041b64f3fcc929d267f3"
+      "sha256": "79e5bf16d0abebbd5e134aedcf091264b98d362a63123f02c96de57deaa4c6c1"
     },
     {
-      "bytes": 10884,
+      "bytes": 10892,
       "path": "tests/test_public_candidate.py",
-      "sha256": "206618849d2fb84f408441e11ea81ef81a25a42a1f70b03f6956c483971bfa59"
+      "sha256": "34548b78a22bd617763906dd501c8d6ef2b9599953d8aa88ceaec5c7ba66c944"
     }
   ],
   "included_file_count": 180,
@@ -930,9 +930,9 @@
   "public_root_tree_sha": "85887a094c1bdea6b0f704ba27b8c6e6adf3d5f1",
   "publication_status_observed_at_utc": "2026-08-13T12:32:19Z",
   "release_class": "SANITIZED_PRODUCTION_SOURCE",
-  "repository": "wotanIII/luma-ai-frontend-public",
+  "repository": "luma-quant/luma-ai-frontend-public",
   "repository_creation_status": "COMPLETED_VERIFIED",
-  "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+  "repository_url": "https://github.com/luma-quant/luma-ai-frontend-public",
   "repository_url_verification": "COMPLETED_VERIFIED",
   "repository_visibility": "PUBLIC",
   "source_private_commit": "b39c2d752abfc9a1c4d151db8519e7b070c7c869",

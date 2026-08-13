@@ -26,7 +26,7 @@ def main() -> None:
         "externalReferences": [
             {
                 "type": "distribution",
-                "url": "https://github.com/wotanIII/luma-ai-frontend-public",
+                "url": "https://github.com/luma-quant/luma-ai-frontend-public",
             }
         ],
         "properties": [

@@ -16855,8 +16855,8 @@
       "version": "2.1.3"
     },
     {
-      "bom-ref": "pkg:npm/nanoid@3.3.17?package-id=dd93399ff46d9f02",
-      "cpe": "cpe:2.3:a:nanoid_project:nanoid:3.3.17:*:*:*:*:node.js:*:*",
+      "bom-ref": "pkg:npm/nanoid@3.3.18?package-id=660c0b7ec8d962ca",
+      "cpe": "cpe:2.3:a:nanoid_project:nanoid:3.3.18:*:*:*:*:node.js:*:*",
       "name": "nanoid",
       "properties": [
         {
@@ -16880,9 +16880,9 @@
           "value": "\\pnpm-lock.yaml"
         }
       ],
-      "purl": "pkg:npm/nanoid@3.3.17",
+      "purl": "pkg:npm/nanoid@3.3.18",
       "type": "library",
-      "version": "3.3.17"
+      "version": "3.3.18"
     },
     {
       "bom-ref": "pkg:npm/node-releases@2.0.51?package-id=b78ef866160d852c",
@@ -17045,7 +17045,7 @@
       "version": "4.0.5"
     },
     {
-      "bom-ref": "pkg:npm/postcss@8.5.23?package-id=5f11b04dcf76375c",
+      "bom-ref": "pkg:npm/postcss@8.5.23?package-id=14a92a5fde2ca63f",
       "cpe": "cpe:2.3:a:postcss:postcss:8.5.23:*:*:*:*:node.js:*:*",
       "name": "postcss",
       "properties": [
@@ -20283,11 +20283,11 @@
     },
     {
       "dependsOn": [
-        "pkg:npm/nanoid@3.3.17?package-id=dd93399ff46d9f02",
+        "pkg:npm/nanoid@3.3.18?package-id=660c0b7ec8d962ca",
         "pkg:npm/picocolors@1.1.1?package-id=2e03c5960e1ef63b",
         "pkg:npm/source-map-js@1.2.1?package-id=0ec565a3b4504f5f"
       ],
-      "ref": "pkg:npm/postcss@8.5.23?package-id=5f11b04dcf76375c"
+      "ref": "pkg:npm/postcss@8.5.23?package-id=14a92a5fde2ca63f"
     },
     {
       "dependsOn": [
@@ -20495,7 +20495,7 @@
         "pkg:npm/esbuild@0.28.1?package-id=d82ce28830fd1283",
         "pkg:npm/fdir@6.5.0?package-id=aa8017eb7ab77920",
         "pkg:npm/picomatch@4.0.5?package-id=1df591367c564c87",
-        "pkg:npm/postcss@8.5.23?package-id=5f11b04dcf76375c",
+        "pkg:npm/postcss@8.5.23?package-id=14a92a5fde2ca63f",
         "pkg:npm/rollup@4.62.2?package-id=a7e6f3f706fbb102",
         "pkg:npm/tinyglobby@0.2.17?package-id=48a0cfde0cfd1451"
       ],
@@ -20507,7 +20507,7 @@
       "externalReferences": [
         {
           "type": "distribution",
-          "url": "https://github.com/wotanIII/luma-ai-frontend-public"
+          "url": "https://github.com/luma-quant/luma-ai-frontend-public"
         }
       ],
       "name": "luma-ai-frontend-public",

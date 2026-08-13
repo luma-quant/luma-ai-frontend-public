@@ -14,7 +14,7 @@ Final audit result:
 
 The first review detected vulnerable transitive versions of `nanoid` and
 `postcss`. The public candidate now applies narrow pnpm overrides to patched
-versions (`nanoid` `3.3.17` and `postcss` `8.5.23`), after which the complete
+versions (`nanoid` `3.3.18` and `postcss` `8.5.23`), after which the complete
 audit returned zero known vulnerabilities.
 
 The CycloneDX SBOM contains 343 components, including platform-specific

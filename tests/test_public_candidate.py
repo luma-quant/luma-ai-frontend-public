@@ -45,10 +45,10 @@ class CandidateContractTests(unittest.TestCase):
         self.assertEqual(release["publication_review_status"], "COMPLETED_VERIFIED")
         self.assertEqual(release["publication_status"], "PUBLIC")
         self.assertTrue(release["publication_performed"])
-        self.assertEqual(release["repository"], "wotanIII/luma-ai-frontend-public")
+        self.assertEqual(release["repository"], "luma-quant/luma-ai-frontend-public")
         self.assertEqual(
             release["repository_url"],
-            "https://github.com/wotanIII/luma-ai-frontend-public",
+            "https://github.com/luma-quant/luma-ai-frontend-public",
         )
         self.assertEqual(release["repository_creation_status"], "COMPLETED_VERIFIED")
         self.assertEqual(release["repository_url_verification"], "COMPLETED_VERIFIED")
@@ -66,11 +66,11 @@ class CandidateContractTests(unittest.TestCase):
         self.assertEqual(release["payment_and_delivery_status"], "NOT_CLAIMED")
         self.assertEqual(
             release["publication_evidence"]["public_review_run_url"],
-            "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890",
+            "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890",
         )
         self.assertEqual(
             release["publication_evidence"]["codeql_run_url"],
-            "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753",
+            "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753",
         )
         self.assertEqual(len(release["product_source_sha256"]), 64)
         self.assertEqual(len(release["public_candidate_sha256"]), 64)

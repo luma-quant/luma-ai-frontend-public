@@ -58,9 +58,9 @@ denylist, exact-closure source manifest, CycloneDX SBOM, dependency audit,
 Gitleaks result, public-boundary scan and pinned CI workflows. CodeQL is active
 in the public repository. The initial scan identified four test-only
 incomplete-sanitization findings; commit
-[`53a12f3a7e1203729a85104a722f4ce1ccb55bd5`](https://github.com/wotanIII/luma-ai-frontend-public/commit/53a12f3a7e1203729a85104a722f4ce1ccb55bd5)
-contains the fixes. The subsequent [public review workflow](https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890)
-and [CodeQL run](https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753)
+[`53a12f3a7e1203729a85104a722f4ce1ccb55bd5`](https://github.com/luma-quant/luma-ai-frontend-public/commit/53a12f3a7e1203729a85104a722f4ce1ccb55bd5)
+contains the fixes. The subsequent [public review workflow](https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890)
+and [CodeQL run](https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753)
 both succeeded, with zero open CodeQL alerts at the observation time recorded
 in `RELEASE.json`. Dependency Review runs for public pull requests. The public
 review workflow uses a pinned, checksum-verified Gitleaks CLI and does not
@@ -86,7 +86,7 @@ state. Repository creation, URL, public visibility and public CI are recorded as
 `COMPLETED_VERIFIED` in `RELEASE.json`.
 
 The Engine Evidence component is published at
-[`wotanIII/luma-engine-evidence-public`](https://github.com/wotanIII/luma-engine-evidence-public).
+[`luma-quant/luma-engine-evidence-public`](https://github.com/luma-quant/luma-engine-evidence-public).
 Trust Center website integration is a separate publication surface. The
 non-public staging history remains non-public and is not part of this fresh
 public repository history. No deployment, payment settlement or delivery

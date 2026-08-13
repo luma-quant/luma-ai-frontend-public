@@ -97,8 +97,8 @@ def main() -> None:
     owner_status = json.loads(OWNER_STATUS_PATH.read_text(encoding="utf-8"))
     release.update(
         {
-            "repository": "wotanIII/luma-ai-frontend-public",
-            "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+            "repository": "luma-quant/luma-ai-frontend-public",
+            "repository_url": "https://github.com/luma-quant/luma-ai-frontend-public",
             "repository_creation_status": "COMPLETED_VERIFIED",
             "repository_url_verification": "COMPLETED_VERIFIED",
             "repository_visibility": "PUBLIC",
@@ -123,8 +123,8 @@ def main() -> None:
                 "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED",
             ],
             "publication_evidence": {
-                "public_review_run_url": "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890",
-                "codeql_run_url": "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753",
+                "public_review_run_url": "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137890",
+                "codeql_run_url": "https://github.com/luma-quant/luma-ai-frontend-public/actions/runs/31696137753",
                 "verified_head_commit_sha": VERIFIED_PRE_STATUS_HEAD,
                 "self_reference_policy": "CURRENT_STATUS_COMMIT_IS_BOUND_BY_GIT_TREE_AND_DETACHED_ARCHIVE_NOT_EMBEDDED_IN_ITS_OWN_CONTENT",
             },
@@ -186,8 +186,8 @@ def main() -> None:
         "trust_layer_component_version": "1.0",
         "component_status": "PUBLIC_OPERATIONAL",
         "release_class": "SANITIZED_PRODUCTION_SOURCE",
-        "repository": "wotanIII/luma-ai-frontend-public",
-        "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+        "repository": "luma-quant/luma-ai-frontend-public",
+        "repository_url": "https://github.com/luma-quant/luma-ai-frontend-public",
         "repository_creation_status": "COMPLETED_VERIFIED",
         "repository_url_verification": "COMPLETED_VERIFIED",
         "repository_visibility": "PUBLIC",
