@@ -20504,7 +20504,31 @@
   ],
   "metadata": {
     "component": {
-      "name": "luma-ai-frontend-public-candidate",
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://github.com/wotanIII/luma-ai-frontend-public"
+        }
+      ],
+      "name": "luma-ai-frontend-public",
+      "properties": [
+        {
+          "name": "luma:source-private-commit",
+          "value": "b39c2d752abfc9a1c4d151db8519e7b070c7c869"
+        },
+        {
+          "name": "luma:public-root-commit",
+          "value": "fb645a93c1501b7251137130adca56530d206a98"
+        },
+        {
+          "name": "luma:verified-pre-status-head",
+          "value": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5"
+        },
+        {
+          "name": "luma:component-status",
+          "value": "PUBLIC_OPERATIONAL"
+        }
+      ],
       "type": "application",
       "version": "0.1.0-rc1"
     },

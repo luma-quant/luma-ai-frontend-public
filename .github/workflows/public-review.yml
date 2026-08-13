@@ -1,4 +1,4 @@
-name: Private public-candidate review
+name: Public source verification
 
 on:
   pull_request:
@@ -54,18 +54,17 @@ jobs:
             | sha256sum --check
           tar -xzf "${RUNNER_TEMP}/${archive}" -C "${RUNNER_TEMP}" gitleaks
           "${RUNNER_TEMP}/gitleaks" dir . --no-banner --redact --exit-code 1
-      - name: Generate review SBOM
+      - name: Generate verification SBOM
         uses: anchore/sbom-action@04151451f829cb881fd7b3250eccf4021433e14e
         with:
           path: product
           format: cyclonedx-json
           output-file: generated-review-sbom.cdx.json
-          artifact-name: luma-ai-frontend-review-sbom
+          artifact-name: luma-ai-frontend-verification-sbom
           upload-release-assets: false
           dependency-snapshot: false
 
   dependency-review:
-    # PREPARED_NOT_EXECUTED while this candidate remains in a private repo.
     if: github.event_name == 'pull_request' && github.event.repository.visibility == 'public'
     runs-on: ubuntu-latest
     permissions:

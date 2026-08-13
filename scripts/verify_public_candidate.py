@@ -57,6 +57,21 @@ def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def canonical_bytes(data: bytes) -> bytes:
+    """Match the LF-normalized bytes committed by Git for UTF-8 text files."""
+    if b"\x00" in data:
+        return data
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+
+def file_bytes(path: Path) -> bytes:
+    return canonical_bytes(path.read_bytes())
+
+
 def tree_digest(items: list[dict[str, object]]) -> str:
     canonical = "".join(
         f"{item['path']}\0{item['bytes']}\0{item['sha256']}\n" for item in items
@@ -78,7 +93,7 @@ def candidate_commitment(files: list[Path]) -> str:
         rel = path.relative_to(ROOT).as_posix()
         if rel in excluded or any(part in {"dist", "node_modules"} for part in path.relative_to(ROOT).parts):
             continue
-        data = path.read_bytes()
+        data = file_bytes(path)
         entries.append({"path": rel, "bytes": len(data), "sha256": digest(data)})
     return tree_digest(entries)
 
@@ -166,8 +181,10 @@ def check_metadata(files: list[Path], findings: list[tuple[str, str]]) -> None:
         "LEGAL_REVIEW_NOT_YET_COMPLETED",
         "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED",
     ]
-    if release.get("publication_blockers") != expected_open:
+    if release.get("open_review_matters") != expected_open:
         findings.append(("open-review-matters", "RELEASE.json"))
+    if "publication_blockers" in release:
+        findings.append(("stale-publication-blockers", "RELEASE.json"))
     if owner.get("open_review_matters") != expected_open:
         findings.append(("open-review-matters", "OWNER_GATE_STATUS.json"))
     if owner.get("operator_identity", {}).get("legal_operator") != "Luma Quant e.U.":
@@ -176,18 +193,45 @@ def check_metadata(files: list[Path], findings: list[tuple[str, str]]) -> None:
         findings.append(("security-contact-evidence-class", "OWNER_GATE_STATUS.json"))
     if not (ROOT / "LICENSE.md").is_file():
         findings.append(("outbound-license-file", "LICENSE.md"))
-    if release.get("publication_review_status") != "PUBLICATION_REVIEW_READY":
+    if release.get("publication_review_status") != "COMPLETED_VERIFIED":
         findings.append(("publication-review-status", "RELEASE.json"))
-    if release.get("publication_status") != "PUBLIC_REPOSITORY_PENDING":
+    if release.get("publication_status") != "PUBLIC":
         findings.append(("publication-status", "RELEASE.json"))
-    if release.get("publication_performed") is not False:
+    if release.get("publication_performed") is not True:
         findings.append(("publication-performed", "RELEASE.json"))
     if release.get("repository") != "wotanIII/luma-ai-frontend-public":
         findings.append(("repository-target", "RELEASE.json"))
     if release.get("repository_url") != "https://github.com/wotanIII/luma-ai-frontend-public":
         findings.append(("repository-url", "RELEASE.json"))
-    if release.get("repository_creation_status") != "PENDING":
+    if release.get("repository_creation_status") != "COMPLETED_VERIFIED":
         findings.append(("repository-creation-status", "RELEASE.json"))
+    if release.get("repository_url_verification") != "COMPLETED_VERIFIED":
+        findings.append(("repository-url-verification", "RELEASE.json"))
+    if release.get("repository_visibility") != "PUBLIC":
+        findings.append(("repository-visibility", "RELEASE.json"))
+    if release.get("component_status") != "PUBLIC_OPERATIONAL":
+        findings.append(("component-status", "RELEASE.json"))
+    if release.get("trust_layer_master_status") != "OUTSIDE_COMPONENT_SCOPE":
+        findings.append(("master-status-scope", "RELEASE.json"))
+    if release.get("public_root_commit_sha") != "fb645a93c1501b7251137130adca56530d206a98":
+        findings.append(("public-root-commit", "RELEASE.json"))
+    if release.get("verified_pre_status_head_commit_sha") != "53a12f3a7e1203729a85104a722f4ce1ccb55bd5":
+        findings.append(("verified-pre-status-head", "RELEASE.json"))
+    if release.get("ci_status") != "SUCCESS":
+        findings.append(("public-ci-status", "RELEASE.json"))
+    if release.get("codeql_status") != "SUCCESS_ZERO_OPEN_ALERTS" or release.get("codeql_open_alerts") != 0:
+        findings.append(("codeql-status", "RELEASE.json"))
+    evidence = release.get("publication_evidence", {})
+    if evidence.get("public_review_run_url") != "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890":
+        findings.append(("public-review-run", "RELEASE.json"))
+    if evidence.get("codeql_run_url") != "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753":
+        findings.append(("codeql-run", "RELEASE.json"))
+    if release.get("deployment_status") != "NOT_CLAIMED" or release.get("payment_and_delivery_status") != "NOT_CLAIMED":
+        findings.append(("unsupported-product-operation-claim", "RELEASE.json"))
+    if owner.get("publication_performed") is not True or owner.get("publication_status") != "PUBLIC":
+        findings.append(("owner-publication-status", "OWNER_GATE_STATUS.json"))
+    if owner.get("product_truth", {}).get("fresh_public_history_requirement") != "COMPLETED_VERIFIED":
+        findings.append(("fresh-public-history-status", "OWNER_GATE_STATUS.json"))
     try:
         inventory = json.loads((ROOT / "ASSET_RIGHTS_INVENTORY.json").read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
@@ -220,6 +264,22 @@ def check_manifest(files: list[Path], findings: list[tuple[str, str]]) -> None:
         findings.append(("manifest-missing", "PUBLIC_SOURCE_MANIFEST.json"))
         return
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    expected_metadata = {
+        "source_private_commit": SOURCE_COMMIT,
+        "repository": "wotanIII/luma-ai-frontend-public",
+        "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
+        "repository_creation_status": "COMPLETED_VERIFIED",
+        "repository_url_verification": "COMPLETED_VERIFIED",
+        "repository_visibility": "PUBLIC",
+        "component_status": "PUBLIC_OPERATIONAL",
+        "public_root_commit_sha": "fb645a93c1501b7251137130adca56530d206a98",
+        "verified_pre_status_head_commit_sha": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5",
+        "ci_status": "SUCCESS",
+        "codeql_status": "SUCCESS_ZERO_OPEN_ALERTS",
+    }
+    for key, expected in expected_metadata.items():
+        if manifest.get(key) != expected:
+            findings.append((f"manifest-{key}", "PUBLIC_SOURCE_MANIFEST.json"))
     entries = manifest.get("files", [])
     expected_paths = [path.relative_to(ROOT).as_posix() for path in files]
     listed_paths = [entry.get("path") for entry in entries]
@@ -227,7 +287,7 @@ def check_manifest(files: list[Path], findings: list[tuple[str, str]]) -> None:
         findings.append(("manifest-closure", "PUBLIC_SOURCE_MANIFEST.json"))
         return
     for path, entry in zip(files, entries, strict=True):
-        data = path.read_bytes()
+        data = file_bytes(path)
         if entry.get("bytes") != len(data) or entry.get("sha256") != digest(data):
             findings.append(("manifest-content", path.relative_to(ROOT).as_posix()))
 

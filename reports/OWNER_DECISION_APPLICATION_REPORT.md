@@ -20,8 +20,11 @@ registration, address and mandatory legal-disclosure fields retain
 `LEGAL_REVIEW_NOT_YET_COMPLETED`. All seven binary assets have exact
 path/size/SHA-256 entries and `OWNED / OWNER_CONFIRMED` status in
 `ASSET_RIGHTS_INVENTORY.json`.
-The existing pre-publication history is ineligible for publication; any later
-public repository must begin from the final sanitized candidate in fresh history.
+The non-public staging history remains ineligible for publication. The public
+repository begins with the final sanitized candidate at root commit
+`fb645a93c1501b7251137130adca56530d206a98`; the verified pre-status head is
+`53a12f3a7e1203729a85104a722f4ce1ccb55bd5`.
 
-No publication, deployment, GitHub write, payment-state change or other
-operational action is performed by this metadata application.
+Repository creation, URL, public visibility and public CI are now
+`COMPLETED_VERIFIED`. This status alignment does not claim or perform a product
+deployment, payment-state change, settlement or delivery action.

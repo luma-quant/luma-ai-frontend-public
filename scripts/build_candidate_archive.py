@@ -12,6 +12,17 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXED_TIME = (2026, 8, 13, 0, 0, 0)
 
 
+def canonical_bytes(data: bytes) -> bytes:
+    """Write the same LF-normalized UTF-8 text bytes that Git publishes."""
+    if b"\x00" in data:
+        return data
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -31,7 +42,7 @@ def main() -> None:
             info = zipfile.ZipInfo(rel, FIXED_TIME)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
-            archive.writestr(info, path.read_bytes(), compresslevel=9)
+            archive.writestr(info, canonical_bytes(path.read_bytes()), compresslevel=9)
     checksum = hashlib.sha256(output.read_bytes()).hexdigest()
     checksum_path = output.with_suffix(output.suffix + ".sha256")
     checksum_path.write_text(f"{checksum}  {output.name}\n", encoding="ascii", newline="\n")

@@ -1,8 +1,10 @@
 # LUMA Quant AI frontend
 
-Publication-review candidate `v0.1.0-rc1` for the user-facing Quant Lab
-associated with `https://ai.lumaquant.tech`. Repository publication is pending;
-this preparation task has not itself published the candidate.
+Public Trust Layer v1.0 source snapshot `v0.1.0-rc1` for the user-facing Quant
+Lab associated with `https://ai.lumaquant.tech`. This repository is public and
+its repository component status is `PUBLIC_OPERATIONAL`. That status describes
+the public source, verification and security workflow; it is not a new product
+deployment claim.
 
 ## What this source proves
 
@@ -51,15 +53,18 @@ generated bundle is intentionally not committed.
 
 ## Security evidence
 
-The candidate contains a source-bound export script, positive allowlist,
+The repository contains a source-bound export script, positive allowlist,
 denylist, exact-closure source manifest, CycloneDX SBOM, dependency audit,
 Gitleaks result, public-boundary scan and pinned CI workflows. CodeQL is active
 in the public repository. The initial scan identified four test-only
-incomplete-sanitization findings; this candidate contains direct code fixes
-and requires a public rerun before a zero-open-alert claim. Dependency Review
-runs for public pull requests.
-The review workflow runs a pinned, checksum-verified Gitleaks CLI locally and
-does not require pull-request write or API access.
+incomplete-sanitization findings; commit
+[`53a12f3a7e1203729a85104a722f4ce1ccb55bd5`](https://github.com/wotanIII/luma-ai-frontend-public/commit/53a12f3a7e1203729a85104a722f4ce1ccb55bd5)
+contains the fixes. The subsequent [public review workflow](https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890)
+and [CodeQL run](https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753)
+both succeeded, with zero open CodeQL alerts at the observation time recorded
+in `RELEASE.json`. Dependency Review runs for public pull requests. The public
+review workflow uses a pinned, checksum-verified Gitleaks CLI and does not
+require pull-request write or API access.
 
 ## Status and limitations
 
@@ -77,11 +82,15 @@ matters. The product legal-policy source records the owner-confirmed operator
 identity while retaining `LEGAL_REVIEW_NOT_YET_COMPLETED` for registration,
 address and mandatory disclosure fields. `ASSET_RIGHTS_INVENTORY.json` binds
 every included binary asset to its path, size, SHA-256 and owner-attested rights
-state. Status `PUBLIC_REPOSITORY_PENDING` means publication has not yet occurred.
+state. Repository creation, URL, public visibility and public CI are recorded as
+`COMPLETED_VERIFIED` in `RELEASE.json`.
 
-The official Trust Center and Engine Evidence repository links are pending the
-approved LumaQuant GitHub organization and Trust Center launch; placeholder or
-unverified links are intentionally not published here.
+The Engine Evidence component is published at
+[`wotanIII/luma-engine-evidence-public`](https://github.com/wotanIII/luma-engine-evidence-public).
+Trust Center website integration is a separate publication surface. The
+non-public staging history remains non-public and is not part of this fresh
+public repository history. No deployment, payment settlement or delivery
+status is claimed by this source publication.
 
 See `KNOWN_LIMITATIONS.md`, `SECURITY.md`, `RELEASE.json` and
 `PUBLIC_SOURCE_MANIFEST.json` for review details.

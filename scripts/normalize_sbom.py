@@ -10,6 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SBOM = ROOT / "SBOM.cdx.json"
 SOURCE_COMMIT = "b39c2d752abfc9a1c4d151db8519e7b070c7c869"
+PUBLIC_ROOT_COMMIT = "fb645a93c1501b7251137130adca56530d206a98"
+VERIFIED_PRE_STATUS_HEAD = "53a12f3a7e1203729a85104a722f4ce1ccb55bd5"
 
 
 def main() -> None:
@@ -19,8 +21,20 @@ def main() -> None:
     metadata["timestamp"] = "2026-08-13T00:00:00Z"
     metadata["component"] = {
         "type": "application",
-        "name": "luma-ai-frontend-public-candidate",
+        "name": "luma-ai-frontend-public",
         "version": "0.1.0-rc1",
+        "externalReferences": [
+            {
+                "type": "distribution",
+                "url": "https://github.com/wotanIII/luma-ai-frontend-public",
+            }
+        ],
+        "properties": [
+            {"name": "luma:source-private-commit", "value": SOURCE_COMMIT},
+            {"name": "luma:public-root-commit", "value": PUBLIC_ROOT_COMMIT},
+            {"name": "luma:verified-pre-status-head", "value": VERIFIED_PRE_STATUS_HEAD},
+            {"name": "luma:component-status", "value": "PUBLIC_OPERATIONAL"},
+        ],
     }
     SBOM.write_text(
         json.dumps(data, indent=2, sort_keys=True) + "\n",

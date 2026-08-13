@@ -2,17 +2,31 @@ from __future__ import annotations
 
 import json
 import ast
+import re
 import unittest
 from pathlib import Path
+
+from scripts import finalize_public_candidate
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class CandidateContractTests(unittest.TestCase):
-    def test_release_is_publication_review_ready_without_publish_claim(self) -> None:
+    def test_publication_hashes_normalize_text_line_endings(self) -> None:
+        self.assertEqual(
+            finalize_public_candidate.canonical_bytes(b"alpha\r\nbeta\rgamma\n"),
+            b"alpha\nbeta\ngamma\n",
+        )
+        binary = b"\x00\r\n"
+        self.assertEqual(finalize_public_candidate.canonical_bytes(binary), binary)
+
+    def test_release_records_verified_public_component_without_product_claims(self) -> None:
         release = json.loads((ROOT / "RELEASE.json").read_text(encoding="utf-8"))
         self.assertEqual(release["public_release"], "0.1.0-rc1")
+        self.assertEqual(release["trust_layer_component_version"], "1.0")
+        self.assertEqual(release["component_status"], "PUBLIC_OPERATIONAL")
+        self.assertEqual(release["trust_layer_master_status"], "OUTSIDE_COMPONENT_SCOPE")
         self.assertEqual(release["production_alignment"], "SANITIZED_MIRROR")
         self.assertEqual(release["independent_audit"], "NOT_YET_COMPLETED")
         self.assertEqual(release["legal_review"], "NOT_YET_COMPLETED")
@@ -21,21 +35,43 @@ class CandidateContractTests(unittest.TestCase):
             "PROPRIETARY_SOURCE_AVAILABLE_ALL_RIGHTS_RESERVED",
         )
         self.assertEqual(
-            release["publication_blockers"],
+            release["open_review_matters"],
             [
                 "LEGAL_REVIEW_NOT_YET_COMPLETED",
                 "INDEPENDENT_THIRD_PARTY_AUDIT_NOT_YET_COMPLETED",
             ],
         )
-        self.assertEqual(release["publication_review_status"], "PUBLICATION_REVIEW_READY")
-        self.assertEqual(release["publication_status"], "PUBLIC_REPOSITORY_PENDING")
-        self.assertFalse(release["publication_performed"])
+        self.assertNotIn("publication_blockers", release)
+        self.assertEqual(release["publication_review_status"], "COMPLETED_VERIFIED")
+        self.assertEqual(release["publication_status"], "PUBLIC")
+        self.assertTrue(release["publication_performed"])
         self.assertEqual(release["repository"], "wotanIII/luma-ai-frontend-public")
         self.assertEqual(
             release["repository_url"],
             "https://github.com/wotanIII/luma-ai-frontend-public",
         )
-        self.assertEqual(release["repository_creation_status"], "PENDING")
+        self.assertEqual(release["repository_creation_status"], "COMPLETED_VERIFIED")
+        self.assertEqual(release["repository_url_verification"], "COMPLETED_VERIFIED")
+        self.assertEqual(release["repository_visibility"], "PUBLIC")
+        self.assertEqual(release["source_private_commit_sha"],
+                         "b39c2d752abfc9a1c4d151db8519e7b070c7c869")
+        self.assertEqual(release["public_root_commit_sha"],
+                         "fb645a93c1501b7251137130adca56530d206a98")
+        self.assertEqual(release["verified_pre_status_head_commit_sha"],
+                         "53a12f3a7e1203729a85104a722f4ce1ccb55bd5")
+        self.assertEqual(release["ci_status"], "SUCCESS")
+        self.assertEqual(release["codeql_status"], "SUCCESS_ZERO_OPEN_ALERTS")
+        self.assertEqual(release["codeql_open_alerts"], 0)
+        self.assertEqual(release["deployment_status"], "NOT_CLAIMED")
+        self.assertEqual(release["payment_and_delivery_status"], "NOT_CLAIMED")
+        self.assertEqual(
+            release["publication_evidence"]["public_review_run_url"],
+            "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137890",
+        )
+        self.assertEqual(
+            release["publication_evidence"]["codeql_run_url"],
+            "https://github.com/wotanIII/luma-ai-frontend-public/actions/runs/31696137753",
+        )
         self.assertEqual(len(release["product_source_sha256"]), 64)
         self.assertEqual(len(release["public_candidate_sha256"]), 64)
 
@@ -60,6 +96,18 @@ class CandidateContractTests(unittest.TestCase):
                 if marker.casefold() in text:
                     findings.append(f"{path.relative_to(ROOT).as_posix()}:{marker}")
         self.assertEqual(findings, [])
+
+    def test_workflow_actions_are_commit_pinned(self) -> None:
+        references: list[tuple[str, str]] = []
+        for workflow in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+            text = workflow.read_text(encoding="utf-8")
+            references.extend(
+                (workflow.name, value)
+                for value in re.findall(r"uses:\s*[^@\s]+@([^\s]+)", text)
+            )
+        self.assertTrue(references)
+        for workflow, reference in references:
+            self.assertRegex(reference, r"^[0-9a-f]{40}$", workflow)
 
     def test_environment_contains_placeholders_only(self) -> None:
         value = (ROOT / "product" / ".env.example").read_text(encoding="utf-8")

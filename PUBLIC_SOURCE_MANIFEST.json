@@ -1,4 +1,7 @@
 {
+  "ci_status": "SUCCESS",
+  "codeql_status": "SUCCESS_ZERO_OPEN_ALERTS",
+  "component_status": "PUBLIC_OPERATIONAL",
   "excluded_categories": [
     "token, wallet, LUMAKey, NFT and artifact products",
     "workspace handoff and wallet registration",
@@ -7,17 +10,22 @@
     "secrets, private origins, source maps and generated directories"
   ],
   "export_timestamp_utc": "2026-08-13T00:00:00Z",
-  "export_tool_version": "1.1.0",
+  "export_tool_version": "1.2.0",
   "files": [
     {
-      "bytes": 767,
-      "path": ".github/workflows/codeql.yml",
-      "sha256": "0db4c7db1e5b0204c0380f19fd4aefd389c732f56e2665e0ba73d761fe6c9ec9"
+      "bytes": 181,
+      "path": ".gitattributes",
+      "sha256": "7c6d6a3679918b53c80de3c3b8cb3c98369e970d701d7e63505db649ef45174f"
     },
     {
-      "bytes": 2719,
+      "bytes": 661,
+      "path": ".github/workflows/codeql.yml",
+      "sha256": "8695941de63848c2e9d00c535f7e4f217a294aab0a7c8a483cc5f53cb5590731"
+    },
+    {
+      "bytes": 2650,
       "path": ".github/workflows/public-review.yml",
-      "sha256": "33865a1bb32048cf39d380daaf243a3c090f82223440f1bd7488dc0ecf88e553"
+      "sha256": "215c70da0bf7d5b4d6e0c9b4cfafb35bd426d2faaa03c1c398cea1355f0c0048"
     },
     {
       "bytes": 1400,
@@ -35,9 +43,9 @@
       "sha256": "c284d0489fcbfe2d9c8877b5571f82808c5d4bdc75a7f52cf611cf6169b32ef4"
     },
     {
-      "bytes": 560,
+      "bytes": 1014,
       "path": "CHANGELOG.md",
-      "sha256": "eee9ce2dd87dbda43dbd2ec333772322142e5bc2eceb88360a698168771f15e9"
+      "sha256": "472c232d17b96a4a791b22afe3dfa5ed5ecf0668e34a01e4acce3c88fdfad52e"
     },
     {
       "bytes": 44264,
@@ -45,9 +53,9 @@
       "sha256": "2cf9a98789a6db353af07ff5b4f3752f9c969f1cbce39f8d7fe8a64e5d8ce843"
     },
     {
-      "bytes": 1340,
+      "bytes": 1592,
       "path": "KNOWN_LIMITATIONS.md",
-      "sha256": "585ac14a2e1b743ed5505b42d88cea3e0b53dcd2c99a733a75fae3453c36899c"
+      "sha256": "efd2bb22fe3aaaab2928d8d7b1c4855e678803399e9836b8ea0b78a0447700ae"
     },
     {
       "bytes": 745,
@@ -55,14 +63,14 @@
       "sha256": "e434260d0f1c21c7cf089ce03d27cccf354092449efa53894d816d25cd2d4e5f"
     },
     {
-      "bytes": 476,
+      "bytes": 559,
       "path": "NOTICE.md",
-      "sha256": "42074c053d06d0b7bffcc540ce47693de6f80f6db7ca3a545135e901182a5668"
+      "sha256": "82f971e0b4a1489423df3f9e41c52fd01be45289a8389121effaeda5d50527fe"
     },
     {
-      "bytes": 1352,
+      "bytes": 1732,
       "path": "OWNER_GATE_STATUS.json",
-      "sha256": "1f6c48634859a28e9cebc6076da2fe89fe1443fccd38eb4f23ec9305221fc4df"
+      "sha256": "998ae7990753d181160fb85a9c01097811ad44b7567e4f529b8d3556c8e14af1"
     },
     {
       "bytes": 1514,
@@ -70,24 +78,24 @@
       "sha256": "4218822933c9bef6cd24d1a4d4457a52f495324a491dd03e1ceee74f65facb05"
     },
     {
-      "bytes": 4062,
+      "bytes": 4801,
       "path": "README.md",
-      "sha256": "058c4fb374d2a5945c5f6c846d07356a5aeaffa86eb3e2a90ef511ad62f8574a"
+      "sha256": "f129abbb3a0c27b5af606f63d011dbc4e5f92bb4be2ec0b0c2b889c98a83cdaa"
     },
     {
-      "bytes": 2132,
+      "bytes": 3268,
       "path": "RELEASE.json",
-      "sha256": "df9f774702d3fb0036f1fcc28d7610b593690b91d1a261086bfd3cd725da9fc2"
+      "sha256": "e2f9321842dde7dc869976ed46c3b9ebc9e62f2517e00937217fd41fbe6ee7a3"
     },
     {
-      "bytes": 696711,
+      "bytes": 697392,
       "path": "SBOM.cdx.json",
-      "sha256": "26cbe12c7015ff389766ee23546eff86f84dde7fcab13f00d5571ea3f8661443"
+      "sha256": "7fe5fa849d72dbab2b78fef5a581f9677f84328f501e6b36f18c19541957c790"
     },
     {
-      "bytes": 795,
+      "bytes": 792,
       "path": "SECURITY.md",
-      "sha256": "0dfe7d8c5e9e604012c26cef346a3fb6da9b3a6510347af2af6655fd7ba6d9a2"
+      "sha256": "462a8a8322b31eb6127c3028787be6ba10cf0f1b8f1074b25554fcd0fc9667f5"
     },
     {
       "bytes": 23027,
@@ -835,9 +843,9 @@
       "sha256": "e1a68f4a3170091d1cefc28bc0348a921a3a691ea7f66599312950accec068e5"
     },
     {
-      "bytes": 1194,
+      "bytes": 1545,
       "path": "reports/BUILD_TEST_REPORT.md",
-      "sha256": "68d8f3c8d00ed1135a17efb36133d09cb15fc2122a122617c765cbea35d6926c"
+      "sha256": "0e4dd7e4fa2704e69b676567691ed3fa2bb1a19fa0104c79fce430d8a63e3c9d"
     },
     {
       "bytes": 716,
@@ -855,19 +863,19 @@
       "sha256": "586a761862a628a5b8e8aefe2fede3b0b46528585164e3c9c220209129aecbea"
     },
     {
-      "bytes": 1305,
+      "bytes": 1488,
       "path": "reports/OWNER_DECISION_APPLICATION_REPORT.md",
-      "sha256": "a2c38f414c22008316690faaa038ca1835500eb655de8dc47afd3fe2d4bf8395"
+      "sha256": "c24b982a6ca70b8f5984c79519e81331e159ae6a5f827cb37cbbe372fce2285a"
     },
     {
-      "bytes": 3114,
+      "bytes": 3437,
       "path": "reports/SECURITY_SCAN_REPORT.md",
-      "sha256": "9fbef4accdbed5df14dad3c49fe54bb1abf23c491ed1778d8a9b39f8a017f54d"
+      "sha256": "1bc8e7b84800d0ff4cb495b86bd045d94e4c612fb5b0a6d70c150b26698360ea"
     },
     {
-      "bytes": 1564,
+      "bytes": 1916,
       "path": "scripts/build_candidate_archive.py",
-      "sha256": "a154d52eee0a152baff35457a59d8324c90088fe20afef2edc28b1e163362b55"
+      "sha256": "2ec5a4c88d340b9c4f30be4747ed9bf159be0d92d26f8ae28eb26de21ebca3f1"
     },
     {
       "bytes": 24362,
@@ -880,14 +888,14 @@
       "sha256": "1553e68cafff7edeef2d1071fa84723fb57e3940a4b649c911cdb92cddfde612"
     },
     {
-      "bytes": 6311,
+      "bytes": 9642,
       "path": "scripts/finalize_public_candidate.py",
-      "sha256": "f7890756ec6a1ca9534ff42714bcf15f579a6ccab47170ad8f70da2a5ce3e89f"
+      "sha256": "65eb12534614d84416feeceaf5e0d09f634830329347b8e5fab0fea31307b532"
     },
     {
-      "bytes": 938,
+      "bytes": 1608,
       "path": "scripts/normalize_sbom.py",
-      "sha256": "97dd75e8a12148b4f00d2b7932fe716c6c76323ba84145259f912140b52a3309"
+      "sha256": "d56a20384f75610d5f90662b5cde6660448494eaabc827a8de669390b2df2197"
     },
     {
       "bytes": 1245,
@@ -895,17 +903,17 @@
       "sha256": "1bf2211d106e98fdb0f5faa096c9f02de1c3a4d45b63f99f53c3430db34f8f30"
     },
     {
-      "bytes": 12092,
+      "bytes": 15613,
       "path": "scripts/verify_public_candidate.py",
-      "sha256": "789b21f090e3cfc5fab5c19fba05c42e9c010326fa917221f7e3f088ccc109a1"
+      "sha256": "65cda3947687ba9954915df7df753b88386b2c2a0127041b64f3fcc929d267f3"
     },
     {
-      "bytes": 8342,
+      "bytes": 10884,
       "path": "tests/test_public_candidate.py",
-      "sha256": "965fcbc39f826ebbb1898e35971423cfde442d4f2ba9b709f014bbc0e581b5db"
+      "sha256": "206618849d2fb84f408441e11ea81ef81a25a42a1f70b03f6956c483971bfa59"
     }
   ],
-  "included_file_count": 179,
+  "included_file_count": 180,
   "owner_gate_status": {
     "asset_rights": "COMPLETED_OWNER_CONFIRMED_FAIL_CLOSED",
     "asset_rights_inventory_sha256": "52f2b41af44587606eea6546e572c0dbc9baac1ecbac9a98bec75aaffc668ac5",
@@ -918,9 +926,17 @@
     "security_contact": "COMPLETED_OWNER_CONFIRMED"
   },
   "public_release": "0.1.0-rc1",
+  "public_root_commit_sha": "fb645a93c1501b7251137130adca56530d206a98",
+  "public_root_tree_sha": "85887a094c1bdea6b0f704ba27b8c6e6adf3d5f1",
+  "publication_status_observed_at_utc": "2026-08-13T12:32:19Z",
   "release_class": "SANITIZED_PRODUCTION_SOURCE",
   "repository": "wotanIII/luma-ai-frontend-public",
-  "repository_creation_status": "PENDING",
+  "repository_creation_status": "COMPLETED_VERIFIED",
   "repository_url": "https://github.com/wotanIII/luma-ai-frontend-public",
-  "source_private_commit": "b39c2d752abfc9a1c4d151db8519e7b070c7c869"
+  "repository_url_verification": "COMPLETED_VERIFIED",
+  "repository_visibility": "PUBLIC",
+  "source_private_commit": "b39c2d752abfc9a1c4d151db8519e7b070c7c869",
+  "trust_layer_component_version": "1.0",
+  "verified_pre_status_head_commit_sha": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5",
+  "verified_pre_status_head_tree_sha": "992834f253af26760481446e8cbc986397baddbc"
 }

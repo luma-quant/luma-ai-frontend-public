@@ -33,7 +33,14 @@
     "production_alignment": "SANITIZED_MIRROR",
     "legal_policy_text_review": "NOT_YET_COMPLETED",
     "private_staging_history_must_remain_private": true,
-    "fresh_public_history_required": true
+    "fresh_public_history_requirement": "COMPLETED_VERIFIED",
+    "public_root_commit_sha": "fb645a93c1501b7251137130adca56530d206a98",
+    "verified_pre_status_head_commit_sha": "53a12f3a7e1203729a85104a722f4ce1ccb55bd5"
   },
-  "publication_performed": false
+  "publication_performed": true,
+  "publication_status": "PUBLIC",
+  "repository_visibility": "PUBLIC",
+  "component_status": "PUBLIC_OPERATIONAL",
+  "deployment_status": "NOT_CLAIMED",
+  "payment_and_delivery_status": "NOT_CLAIMED"
 }
