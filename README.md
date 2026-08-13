@@ -53,9 +53,11 @@ generated bundle is intentionally not committed.
 
 The candidate contains a source-bound export script, positive allowlist,
 denylist, exact-closure source manifest, CycloneDX SBOM, dependency audit,
-Gitleaks result, public-boundary scan and pinned CI workflows. CodeQL is
-prepared but intentionally does not execute while the candidate repository is
-private (`PREPARED_NOT_EXECUTED`). Dependency Review is gated the same way.
+Gitleaks result, public-boundary scan and pinned CI workflows. CodeQL is active
+in the public repository. The initial scan identified four test-only
+incomplete-sanitization findings; this candidate contains direct code fixes
+and requires a public rerun before a zero-open-alert claim. Dependency Review
+runs for public pull requests.
 The review workflow runs a pinned, checksum-verified Gitleaks CLI locally and
 does not require pull-request write or API access.
 

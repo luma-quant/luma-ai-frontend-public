@@ -19,7 +19,7 @@ import {
 test('Legal Center exposes every public English policy and review-safe contact path', () => {
   const markup = renderToStaticMarkup(createElement(LegalCenter));
   for (const policy of LEGAL_DOCUMENTS) {
-    assert.match(markup, new RegExp(policy.shortTitle.replace('&', '&amp;')));
+    assert.ok(markup.includes(policy.shortTitle.replaceAll('&', '&amp;')));
     assert.match(markup, new RegExp(`href="${policy.path}"`));
   }
   assert.match(markup, /Legal &amp; Privacy/);

@@ -163,10 +163,7 @@ test('AI ticket generation opens from My Tickets in a dedicated full-screen work
     'Manual Ticket Set',
     'Download CSV',
   ]) {
-    assert.match(
-      `${analyticsLedger}\n${ticketGenerator}`,
-      new RegExp(expected.replace(/[?.]/g, '\\$&')),
-    );
+    assert.ok(`${analyticsLedger}\n${ticketGenerator}`.includes(expected));
   }
   assert.doesNotMatch(analyticsLedger, /Report Scenario Builder/);
   assert.match(analyticsLedger, /open=\{Boolean\(selectedDraw && !isForecastTicketPanel\)\}/);

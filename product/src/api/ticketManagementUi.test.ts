@@ -30,7 +30,7 @@ test('ticket management exposes English edit and confirmed-delete states', () =>
     'Cancel ticket deletion',
     'Ticket deleted.',
   ]) {
-    assert.match(ledger, new RegExp(expected.replace(/[?.]/g, '\\$&')));
+    assert.ok(ledger.includes(expected));
   }
 
   assert.match(ledger, /canManageManualTicket\(tip, ticketTargetDraw\)/);

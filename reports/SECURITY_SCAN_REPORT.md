@@ -38,9 +38,13 @@ fixtures; no credential value is reproduced here.
 | generic-api-key | `src/api/advisorRunRecovery.test.ts` | `c5b28ff3d8ef535058ba45cc575ff2b819aa038d` | false positive | `...:generic-api-key:71` | Synthetic UUID replaced in public export |
 | generic-api-key | `src/api/backendData.test.ts` | `c5b28ff3d8ef535058ba45cc575ff2b819aa038d` | false positive | `...:generic-api-key:709` | Synthetic UUID replaced in public export |
 
-CodeQL and Dependency Review are prepared in pinned CI but are
-`PREPARED_NOT_EXECUTED` while the repository is private. The review workflow
-uses a checksum-verified Gitleaks 8.30.1 CLI without PR write or API access.
+The initial public CodeQL run identified four test-only
+`js/incomplete-sanitization` findings. This candidate replaces the incomplete
+dynamic regular-expression handling with deterministic literal checks and is
+locally verified; the public CodeQL rerun is still pending, so no zero-alert
+claim is made yet. Dependency Review is enabled for public pull requests. The
+review workflow uses a checksum-verified Gitleaks 8.30.1 CLI without PR write
+or API access.
 No independent third-party audit has been completed. Legal review and the
 independent third-party audit remain the two open review matters. Owner
 confirmation of identity, asset policy, outbound license and the security

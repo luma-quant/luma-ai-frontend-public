@@ -5,7 +5,8 @@
 - Production alignment is `SANITIZED_MIRROR`; deployment parity has not been
   independently verified.
 - The committed environment file contains non-operational placeholders only.
-- CodeQL is prepared but has not run in the final GitHub repository.
+- The public CodeQL rerun for this hotfix is pending; no zero-open-alert claim
+  is made before that rerun completes.
 - The production bundle warns that one initial JavaScript chunk exceeds 500 kB;
   this is a performance optimization item, not a build failure.
 - Browser session storage and third-party dependencies require continuing
